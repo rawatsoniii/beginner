@@ -12,7 +12,7 @@
 #   A user that enters "5" for periods will need to enter 6 cashflows.
 #   To correct for the indexing issue, periods += 1 has been included.
 
-import math
+import math # math library isn't used
 
 cashflow = []
 discountedvalue = []    
