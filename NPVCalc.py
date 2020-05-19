@@ -42,6 +42,5 @@ def calc(p,r):
 if __name__ == "__main__":
     main()
 
-#
-# CHANGE THE SIGNIFICANT DIGITS?
-# USE MATH FOR THIS?
+# Consider pandas
+# CHANGE THE SIGNIFICANT DIGITS
