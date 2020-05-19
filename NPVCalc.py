@@ -24,7 +24,6 @@ def main():
     for i in range(periods):
         cf = float(input('Cashflow for Period ' + str(i) + ': '))
         cashflow.append(cf)
-        print("PERIOD ", i, "CASHFLOW ", cf)
     rate = float(input('Discount Rate (as a decimal): '))
     calc(cashflow,rate)
 
@@ -38,7 +37,12 @@ def calc(p,r):
         fv = cf/((1+r)**n)
         discountedvalue.append(fv)
     npv = sum(discountedvalue)
-    print("The net present value is: ", npv)
+    printout(cashflow, discountedvalue, npv)
+
+def printout(cshflw, disval, netval):
+    print("The cashflows are: ", cshflw)
+    print("The discounted values are: ", disval)
+    print("The net present value is: ", netval)
 
 if __name__ == "__main__":
     main()
