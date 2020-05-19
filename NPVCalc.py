@@ -14,9 +14,11 @@
 
 import math
 
+cashflow = []
+discountedvalue = []    
+
 def main():
     welcome()
-    cashflow = []
     periods = int(input('Number of Periods: '))
     periods += 1
     for i in range(periods):
@@ -31,7 +33,6 @@ def welcome():
     print('This is a simple Net Present Value Calculator.')
 
 def calc(p,r):
-    discountedvalue = []
     for cf in p:
         n = int(p.index(cf))
         fv = cf/((1+r)**n)
