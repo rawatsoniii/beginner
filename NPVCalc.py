@@ -24,7 +24,7 @@ def main():
     for i in range(periods):
         cf = float(input('Cashflow for Period ' + str(i) + ': '))
         cashflow.append(cf)
-        print("PERIOD ", i, "CASHFLOW ", cf) # TRY AND PRINT THIS AS A LIST RATHER THAN INDIVIDUALLY
+        print("PERIOD ", i, "CASHFLOW ", cf)
     rate = float(input('Discount Rate (as a decimal): '))
     calc(cashflow,rate)
 
