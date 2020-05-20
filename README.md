@@ -4,6 +4,11 @@ This is a repository for beginner level code. Descriptions:
 
 >
 
+FVCalc.py
+A simple future value calculator that compounds a present value (input) at a set periodic rate (input) for a number of periods (input). 
+
+>
+
 NPVCalc.py
 
 A simple calculator to find the net present values of future cashflows. 
