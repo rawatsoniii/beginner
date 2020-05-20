@@ -8,6 +8,7 @@ NPVCalc.py
 
 A simple calculator to find the net present values of future cashflows. 
 User inputs number of periods, individual cashflows for each period, and a discount rate. 
+Exports the cashflow inputs and discounted values for each to a .csv
 
 pandas
 
