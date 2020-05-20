@@ -1,9 +1,6 @@
 # beginner
 
-This is a repository for beginner level code. 
-
-
-Descriptions: 
+This is a repository for beginner level code. Descriptions: 
 
 >
 
