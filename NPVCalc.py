@@ -31,8 +31,7 @@ def main():
         period.append(i)
     rate = float(input('Discount Rate (as a decimal): '))
     calc(cashflow,rate)
-    data()
-    printout()
+
 
 def welcome():
     print('Welcome.')
@@ -45,17 +44,21 @@ def calc(p,r):
         pv = cf/((1+r)**n)
         discountedvalue.append(pv)
     npv = sum(discountedvalue)
-    print('______________________________________________________________________')
-    print('The Net Present Value of your cashflow inputs is: ', npv)
-    print('______________________________________________________________________')
+    data()
+    printout(npv)
 
 def data():
     df['Period'] = period
     df['Cashflow'] = cashflow
     df['Present Value'] = discountedvalue
 
-def printout():
+
+def printout(n):
+    print('______________________________________________________________________')
     print(df)
+    print('______________________________________________________________________')
+    print('The Net Present Value of your cashflow inputs is: ', n)
+    print('______________________________________________________________________')
 
 if __name__ == "__main__":
     main()
