@@ -50,6 +50,7 @@ def data():
     df['Period'] = period
     df['Cashflow'] = cashflow
     df['Present Value'] = discountedvalue
+    df.to_csv('Cashflow.csv', index=False)
 
 def printout(n):
     print('______________________________________________________________________')
