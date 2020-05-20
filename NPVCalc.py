@@ -54,7 +54,6 @@ def data():
     df['Cashflow'] = cashflow
     df['Present Value'] = discountedvalue
 
-
 def printout():
     print(df)
 
