@@ -2,20 +2,24 @@
 # NPV is found by summing the discounted values of all future cashflows.
 
 # User inputs the number of periods, a cash flow for each period, and the discount rate.
-
-# For the purposes of calculating the discounted value (NPV):
-#   Zero and negativbe values are acceptable.
-#   The discount rate must be entered as a decimal, e.g. 9% == 0.09
+# Zero and negativbe values are acceptable.
+# The discount rate must be entered as a decimal, e.g. 9% == 0.09
 
 # As Python lists start w/ index 0:
 #   "Period 0" is t=0, e.g. the initial cashflow immeadiately at the start of the series.
 #   A user that enters "5" for periods will need to enter 6 cashflows.
 #   To correct for the indexing issue, periods += 1 has been included.
 
+# See the bottom for an example. 
+
 import math # math library isn't used
+import pandas as pd
 
 cashflow = []
-discountedvalue = []    
+discountedvalue = []
+period = []
+
+df = pd.DataFrame(columns=['Period', 'Cashflow', 'Present Value'])
 
 def main():
     welcome()
@@ -24,12 +28,16 @@ def main():
     for i in range(periods):
         cf = float(input('Cashflow for Period ' + str(i) + ': '))
         cashflow.append(cf)
+        period.append(i)
     rate = float(input('Discount Rate (as a decimal): '))
     calc(cashflow,rate)
+    data()
+    printout()
 
 def welcome():
     print('Welcome.')
     print('This is a simple Net Present Value Calculator.')
+    print('______________________________________________________________________')
 
 def calc(p,r):
     for cf in p:
@@ -37,15 +45,26 @@ def calc(p,r):
         pv = cf/((1+r)**n)
         discountedvalue.append(pv)
     npv = sum(discountedvalue)
-    printout(cashflow, discountedvalue, npv)
+    print('______________________________________________________________________')
+    print('The Net Present Value of your cashflow inputs is: ', npv)
+    print('______________________________________________________________________')
 
-def printout(cshflw, disval, netval):
-    print("The cashflows are: ", cshflw)
-    print("The discounted values are: ", disval)
-    print("The net present value is: ", netval)
+def data():
+    df['Period'] = period
+    df['Cashflow'] = cashflow
+    df['Present Value'] = discountedvalue
+
+
+def printout():
+    print(df)
 
 if __name__ == "__main__":
     main()
 
-# Consider pandas
-# CHANGE THE SIGNIFICANT DIGITS
+# An example:
+
+# Cashflows over five full years (5 periods) would normally have 6 cashflows;
+# An initial outflow (representing an investment), 
+# followed by a series of inflows (representing the investment returns).
+
+# -100, 100, 110, 121, 133.10, 146.41
