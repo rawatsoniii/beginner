@@ -32,7 +32,6 @@ def main():
     rate = float(input('Discount Rate (as a decimal): '))
     calc(cashflow,rate)
 
-
 def welcome():
     print('Welcome.')
     print('This is a simple Net Present Value Calculator.')
@@ -51,7 +50,6 @@ def data():
     df['Period'] = period
     df['Cashflow'] = cashflow
     df['Present Value'] = discountedvalue
-
 
 def printout(n):
     print('______________________________________________________________________')
