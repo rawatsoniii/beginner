@@ -1,4 +1,4 @@
-# A very simple net present value (NPV) calculator.
+# A very simple net present value (NPV) calculator that graphs the inputs and the calculated discounted values.
 # NPV is found by summing the discounted values of all future cashflows.
 
 # User inputs the number of periods, a cash flow for each period, and the discount rate.
@@ -90,3 +90,5 @@ if __name__ == "__main__":
 # followed by a series of inflows (representing the investment returns).
 
 # -100, 100, 110, 121, 133.10, 146.41
+
+# This file was actually the basis for NPVCalc_Basic.py, but grew to the above code. NPVCalc_Basic.py was reuploaded. 
