@@ -2,7 +2,7 @@ FVCalc.py
 A simple future value calculator that compounds a present value (input) at a set periodic rate (input) for a number of periods (input).
 
 NPVCalc_Graph.py
-A simple calculator to find the net present values of future cashflows. \User inputs number of periods, individual cashflows for each period, and a discount rate. \Generates a line chart and exports the cashflow inputs and discounted values for each to a .csv
+A simple calculator to find the net present values of future cashflows. User inputs number of periods, individual cashflows for each period, and a discount rate. Generates a line chart and exports the cashflow inputs and discounted values for each to a .csv
 pandas
 matplotlib
 seaborn
