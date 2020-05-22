@@ -13,29 +13,27 @@
 # See the bottom for an example. 
 
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-sns.set(style="whitegrid")
-
-cashflow = []
-discountedvalue = []
+cash_flow = []
+discounted_value = []
 period = []
 
-df = pd.DataFrame(columns=['Period', 'Cashflow', 'Present Value'])
-df2 = df
+df = pd.DataFrame(columns=['Period','Cashflow', 'Present Value'])
 
 def main():
     welcome()
-    periods = int(input('Number of Periods: '))
-    periods += 1
-    for i in range(periods):
+    input_periods = int(input('Number of Periods: '))
+    input_periods += 1
+    for i in range(input_periods):
         cf = float(input('Cashflow for Period ' + str(i) + ': '))
-        cashflow.append(cf)
+        cash_flow.append(cf)
         period.append(i)
     rate = float(input('Discount Rate (as a decimal): '))
-    calc(cashflow,rate)
-    plot(periods)
+    calc(cash_flow,rate)
+    plot(input_periods)
 
 def welcome():
     print('Welcome.')
@@ -43,21 +41,26 @@ def welcome():
     print('______________________________________________________________________')
 
 def calc(p,r):
+    # main calculator that iterates over each item in the list cash_flow
+    # to calculate separate discounted values
+    # and then appends each discounted value to the list discounted_value
+    df['Period'] = period
     for cf in p:
         n = period.pop(0)
         pv = cf/((1+r)**n)
-        discountedvalue.append(pv)
-    npv = sum(discountedvalue)
+        discounted_value.append(pv)
+    npv = sum(discounted_value)
     data()
     printout(npv)
 
 def data():
-    df['Period'] = period
-    df['Cashflow'] = cashflow
-    df['Present Value'] = discountedvalue
+    # inserts items from the lists into the dataframe
+    df['Cashflow'] = cash_flow
+    df['Present Value'] = discounted_value
     df.to_csv('Cashflow.csv', index=False)
 
 def printout(n):
+    # prints dataframe and the value returned to npv in calc()
     print('______________________________________________________________________')
     print(df)
     print('______________________________________________________________________')
@@ -65,12 +68,18 @@ def printout(n):
     print('______________________________________________________________________')
 
 def plot(per):
-    per -= 1
+    # configures settings for a line chart to be created with matplotlib
+    # and styled with seaborn
     df2 = df[['Cashflow', 'Present Value']]
-    sns.lineplot(data=df2, palette="bright", linewidth=2.5)
-    plt.xlim(0, per)
+    sns.set(style="whitegrid")
+    sns.set_style("ticks")
+    graph = sns.lineplot(data=df2, palette="bright", linewidth=2.5)
+    graph.set(xlabel='Period', ylabel='Dollar Values')
+    plt.xticks(np.arange(0, per, step=1))
+    plt.legend(loc = 'lower right')
+    plt.grid(False)
     plt.show()
-    
+
 if __name__ == "__main__":
     main()
 
