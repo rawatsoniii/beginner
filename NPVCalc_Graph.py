@@ -35,7 +35,7 @@ def main():
         period.append(i)
     rate = float(input('Discount Rate (as a decimal): '))
     calc(cashflow,rate)
-    plot(period)
+    plot(periods)
 
 def welcome():
     print('Welcome.')
