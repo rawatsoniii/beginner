@@ -12,14 +12,18 @@
 
 # See the bottom for an example. 
 
-import math # math library isn't used
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.set(style="whitegrid")
 
 cashflow = []
 discountedvalue = []
 period = []
 
 df = pd.DataFrame(columns=['Period', 'Cashflow', 'Present Value'])
+df2 = df
 
 def main():
     welcome()
@@ -31,6 +35,7 @@ def main():
         period.append(i)
     rate = float(input('Discount Rate (as a decimal): '))
     calc(cashflow,rate)
+    plot()
 
 def welcome():
     print('Welcome.')
@@ -59,6 +64,11 @@ def printout(n):
     print('The Net Present Value of your cashflow inputs is: ', n)
     print('______________________________________________________________________')
 
+def plot():
+    df2 = df[['Cashflow', 'Present Value']]
+    sns.lineplot(data=df2, palette="tab10", linewidth=2.5)
+    plt.show()
+    
 if __name__ == "__main__":
     main()
 
