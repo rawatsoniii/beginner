@@ -8,6 +8,7 @@ pandas
 NPVCalc_Graph.py
 A simple calculator to find the net present values of future cashflows. User inputs number of periods, individual cashflows for each period, and a discount rate. Generates a line chart and exports the cashflow inputs and discounted values for each to a .csv
 pandas
+numpy
 matplotlib
 seaborn
 
