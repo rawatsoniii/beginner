@@ -44,7 +44,7 @@ def welcome():
 
 def calc(p,r):
     for cf in p:
-        n = int(p.index(cf))
+        n = period.pop(0)
         pv = cf/((1+r)**n)
         discountedvalue.append(pv)
     npv = sum(discountedvalue)
