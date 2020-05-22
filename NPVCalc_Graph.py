@@ -31,8 +31,8 @@ def main():
         cf = float(input('Cashflow for Period ' + str(i) + ': '))
         cash_flow.append(cf)
         period.append(i)
-    rate = float(input('Discount Rate (as a decimal): '))
-    calc(cash_flow,rate)
+    compount_rate = float(input('Discount Rate (as a decimal): '))
+    calc(cash_flow, compound_rate)
     plot(input_periods)
 
 def welcome():
@@ -51,7 +51,7 @@ def calc(p,r):
         discounted_value.append(pv)
     npv = sum(discounted_value)
     data()
-    printout(npv)
+    print_out(npv)
 
 def data():
     # inserts items from the lists into the dataframe
@@ -59,7 +59,7 @@ def data():
     df['Present Value'] = discounted_value
     df.to_csv('Cashflow.csv', index=False)
 
-def printout(n):
+def print_out(n):
     # prints dataframe and the value returned to npv in calc()
     print('______________________________________________________________________')
     print(df)
