@@ -35,7 +35,7 @@ def main():
         period.append(i)
     rate = float(input('Discount Rate (as a decimal): '))
     calc(cashflow,rate)
-    plot()
+    plot(period)
 
 def welcome():
     print('Welcome.')
@@ -64,9 +64,11 @@ def printout(n):
     print('The Net Present Value of your cashflow inputs is: ', n)
     print('______________________________________________________________________')
 
-def plot():
+def plot(per):
+    per -= 1
     df2 = df[['Cashflow', 'Present Value']]
-    sns.lineplot(data=df2, palette="tab10", linewidth=2.5)
+    sns.lineplot(data=df2, palette="bright", linewidth=2.5)
+    plt.xlim(0, per)
     plt.show()
     
 if __name__ == "__main__":
