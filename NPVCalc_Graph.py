@@ -26,7 +26,7 @@ df = pd.DataFrame(columns=['Period','Cashflow', 'Present Value'])
 def main():
     welcome()
     input_periods = int(input('Number of Periods: '))
-    input_periods += 1
+    input_periods +=1
     for i in range(input_periods):
         cf = float(input('Cashflow for Period ' + str(i) + ': '))
         cash_flow.append(cf)
@@ -76,7 +76,7 @@ def plot(per):
     graph = sns.lineplot(data=df2, palette="bright", linewidth=2.5)
     graph.set(xlabel='Period', ylabel='Dollar Values')
     plt.xticks(np.arange(0, per, step=1))
-    plt.legend(loc = 'lower right')
+    plt.legend(loc='lower right')
     plt.grid(False)
     plt.show()
 
